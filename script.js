@@ -1,5 +1,4 @@
-let playerSelection = prompt("Rock, Paper or Scissors?");
-playerSelection = playerSelection.toLowerCase();
+let playerSelection;
 
 function getComputerChoice () {
     let roll = Math.floor(Math.random()*3);
@@ -12,7 +11,7 @@ function getComputerChoice () {
     }
 }
 
-let computerSelection = getComputerChoice();
+let computerSelection;
 
 function playGame(player, computer) {
     if (player === "rock" && computer === "rock") {
@@ -59,21 +58,48 @@ function endResult(result) {
     }
 }
 
-console.log(playerSelection[0].toUpperCase() + playerSelection.slice(1) + " vs " + computerSelection[0].toUpperCase()+ computerSelection.slice(1));
-let result = playGame(playerSelection, computerSelection);
-endResult(result);
+// console.log(playerSelection[0].toUpperCase() + playerSelection.slice(1) + " vs " + computerSelection[0].toUpperCase()+ computerSelection.slice(1));
+// let result = playGame(playerSelection, computerSelection);
+// endResult(result);
 
 
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        playerSelection = prompt("Rock, Paper or Scissors?");
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = getComputerChoice();
+        let result = playGame(playerSelection, computerSelection);
+        console.log(result);
+        if (result === "win") {
+            playerScore++;
+        } else if (result === "lose") {
+            computerScore++;
+        } 
 
-// if (playerSelection === "rock" && computerSelection === "rock") {
-//     console.log("You tie! Rock ties with Rock.");
-// } else if (playerSelection === "rock" && computerSelection === "paper") {
-//     console.log("You lose! Rock loses to Paper.");
-// } else if (playerSelection === "rock" && computerSelection === "scissors") {
-//     console.log("You win! Rock beats Scissors.");
-// }
+    }
+    if (playerScore > computerScore) {
+        console.log(`You beat the computer with a score of ${playerScore} to ${computerScore}!`);
+    } else if (playerScore < computerScore) {
+        console.log(`You lost to the computer with a score of ${playerScore} to ${computerScore}.`);
+    } else if (playerScore === computerScore){
+        console.log(`You tie with the computer with a score of ${playerScore} to ${computerScore}.`)
+    }
+    let replay = prompt("Play Again?");
+    replay = replay.toLowerCase();
 
-// if (playerSelection === "paper" && )
+    if (replay === "yes") {
+        game();
+    } else if (replay === "no") {
+        console.log("Thanks for playing!");
+    }
+    
+}
+
+game();
+
+
 
 //get random computer choice
 //random choice. 1 = rock 2 = paper 3 = scissor
