@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Helvetica", sans-serif;
+}
+
+.header {
+    height: 150px;
+    background-color: #1a548f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header > div {
+    flex: 1;
+    color: white;
+    font-size: 30px;
+
+}
+
+.rps-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-game {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 20px;
+}
+
+.yes-no {
+    flex-direction: row;
+    display: flex;
+    gap: 20px;
+}
+
+.yn-button {
+    background-color: #1a548f;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.choice-button {
+    background-color: white;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
